@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+console.log("test")
+
+$( document ).ready(function() {
+    $( "#click" ).click(function() {
+    	$.ajax({
+    		type: "get",
+    		dataType: "json",
+    		url: '/colors/index'
+
+    	}).done(function(response) {
+ 	     var color  = String(response.color);
+ 	     console.log(color);
+ 	     var rand = String(Math.floor(Math.random() * 9) + 1);
+ 	     console.log(rand)
+ 	     console.log($("#"+rand))
+ 	     console.log(("background-color", "#" + color))
+ 	     $("#"+rand).css("background-color", "#" + color);
+		})
+
+	});
+});
+
+
+
+
